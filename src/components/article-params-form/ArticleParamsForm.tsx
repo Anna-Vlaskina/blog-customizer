@@ -1,6 +1,9 @@
 import { useState, useRef, useEffect } from 'react';
+import clsx from 'clsx';
 import { ArrowButton } from 'src/ui/arrow-button';
 import { Button } from 'src/ui/button';
+import { Text } from 'src/ui/text';
+import { Option } from 'src/ui/select/Option';
 
 import styles from './ArticleParamsForm.module.scss';
 
@@ -34,8 +37,18 @@ export const ArticleParamsForm = () => {
 		<>
 			<ArrowButton isOpen={isOpen} onClick={handleToggle} />
 			{isOpen && (
-				<aside className={styles.container} ref={formRef}>
+				<aside
+					className={clsx(styles.container, {
+						[styles.container_open]: isOpen,
+					})}
+					ref={formRef}>
 					<form className={styles.form}>
+						<Text size={31} weight={800} uppercase align='left'>
+							задайте параметры
+						</Text>
+
+						<Option option={} onClick={}></Option>
+
 						<div className={styles.bottomContainer}>
 							<Button title='Сбросить' htmlType='reset' type='clear' />
 							<Button title='Применить' htmlType='submit' type='apply' />
